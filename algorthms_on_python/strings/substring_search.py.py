@@ -38,5 +38,29 @@ def search_substring(s: str, sub: str) -> list[int]:
             pos.append(i)
 
     return pos
+def test_search_substring():
+    print("test_case #1:", end=" ")
+    print("Ok" if search_substring("abracadabra", "abra") == [0, 7] else "Fail")
+
+    print("test_case #2:", end=" ")
+    print("Ok" if search_substring("aaaaa", "aa") == [0, 1, 2, 3] else "Fail")
+
+    print("test_case #3:", end=" ")
+    print("Ok" if search_substring("hello", "world") == [] else "Fail")
+
+    print("test_case #4:", end=" ")
+    print("Ok" if search_substring("abc", "abc") == [0] else "Fail")
+
+    print("test_case #5:", end=" ")
+    print("Ok" if search_substring("abc", "") == [0, 1, 2, 3] else "Fail")
+
+    print("test_case #6:", end=" ")
+    print("Ok" if search_substring("", "a") == [] else "Fail")
+
+    print("test_case #7:", end=" ")
+    print("Ok" if search_substring("", "") == [0] else "Fail")
 
 
+if __name__ == "__main__":
+    print(search_substring("abracadabra", "abra"))
+    test_search_substring()
