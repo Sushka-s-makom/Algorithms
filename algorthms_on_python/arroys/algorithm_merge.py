@@ -31,4 +31,29 @@ def merge(A, B):
     return C
 
 
+def _is_sorted(x):
+    return all(x[i] <= x[i + 1] for i in range(len(x) - 1))
 
+
+def _self_test():
+    # empty cases
+    assert merge([], []) == []
+    assert merge([1, 2, 3], []) == [1, 2, 3]
+    assert merge([], [1, 2]) == [1, 2]
+
+    # interleaving
+    assert merge([1, 3, 5], [2, 4, 6]) == [1, 2, 3, 4, 5, 6]
+
+    # duplicates
+    assert merge([1, 2, 2], [2, 2, 3]) == [1, 2, 2, 2, 2, 3]
+
+    # output sorted
+    out = merge([0, 10, 10], [1, 2, 9, 11])
+    assert _is_sorted(out)
+
+    print("OK: algorithm_merge self_test")
+
+
+if __name__ == "__main__":
+    print(merge([1, 4, 7], [2, 2, 8]))
+    _self_test()
