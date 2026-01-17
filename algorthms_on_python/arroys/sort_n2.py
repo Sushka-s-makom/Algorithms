@@ -47,5 +47,9 @@ def test_sort(sort_algorithm):
     sort_algorithm(A)
     print("Ok" if A == A_sorted else f"Fail (got {A})")
 
-
+if __name__ == "__main__":
+    # Run the same test for each algorithm
+    test_sort(insert_sort)
+    test_sort(choise_sort)
+    test_sort(bubble_sort)
 
